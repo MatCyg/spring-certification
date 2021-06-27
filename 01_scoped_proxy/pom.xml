@@ -11,9 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>scoped-proxy</artifactId>
-    <packaging>jar</packaging>
-
+    <artifactId>01_scoped_proxy</artifactId>
 
     <dependencies>
         <dependency>
