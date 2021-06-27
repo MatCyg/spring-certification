@@ -1,7 +1,6 @@
 package io.cygert.scopedproxy;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Scope;
@@ -11,6 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import java.util.UUID;
 
 @SpringBootApplication
@@ -51,6 +54,7 @@ interface UserSettings {
         proxyMode = ScopedProxyMode.INTERFACES)
 // try with proxyMode = ScopedProxyMode.TARGET_CLASS
 // try with value = ConfigurableBeanFactory.SCOPE_PROTOTYPE
+// try with @PerSessionComponent
 class UserSettingsImpl implements UserSettings {
     private final String username = UUID.randomUUID().toString();
 
@@ -60,3 +64,9 @@ class UserSettingsImpl implements UserSettings {
     }
 }
 
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@Component
+@Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.INTERFACES)
+@interface PerSessionComponent {
+}
