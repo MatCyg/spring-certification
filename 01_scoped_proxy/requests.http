@@ -1,0 +1,9 @@
+GET http://localhost:8080/scope
+
+###
+
+# set JSESSIONID from previous request to get value from the same UserSettings bean
+GET http://localhost:8080/scope
+Cookie: JSESSIONID=7A55635A05B820D2F11E23006D62E59F
+
+###
