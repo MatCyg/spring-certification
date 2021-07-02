@@ -1,0 +1,3 @@
+Classes:
+- AutowiredAnnotationBeanPostProcessor
+- DefaultSingletonBeanRegistry

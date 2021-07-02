@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>03_properties_converters</artifactId>
+    <artifactId>04_circular_lazy_dependency</artifactId>
 
     <dependencies>
         <dependency>

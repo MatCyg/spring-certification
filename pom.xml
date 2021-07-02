@@ -20,6 +20,8 @@
         <module>01_scoped_proxy</module>
         <module>02_bean_lifecycle</module>
         <module>03_properties_converters</module>
+        <module>04_circular_lazy_dependency</module>
+        <module>05_context_configuration</module>
     </modules>
 
     <properties>

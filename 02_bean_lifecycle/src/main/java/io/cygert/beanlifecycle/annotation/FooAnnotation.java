@@ -1,5 +1,6 @@
 package io.cygert.beanlifecycle.annotation;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -8,7 +9,10 @@ import javax.annotation.PreDestroy;
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 class FooAnnotation {
+
+    private final FooAnnotation2 fooAnnotation2;
 
     @PostConstruct
     void init() {
