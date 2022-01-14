@@ -1,3 +1,4 @@
+
 package io.cygert.scopedproxy;
 
 import lombok.RequiredArgsConstructor;
@@ -32,7 +33,6 @@ class ScopeController {
     String scopeTest() {
         return themeManager.username();
     }
-
 }
 
 @Component
@@ -55,6 +55,7 @@ interface UserSettings {
 // try with proxyMode = ScopedProxyMode.TARGET_CLASS
 // try with value = ConfigurableBeanFactory.SCOPE_PROTOTYPE
 // try with @PerSessionComponent
+// try with @SessionScope
 class UserSettingsImpl implements UserSettings {
     private final String username = UUID.randomUUID().toString();
 
