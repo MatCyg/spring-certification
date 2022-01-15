@@ -1,10 +1,7 @@
 package io.cygert.transactions.template;
 
 import io.cygert.transactions.model.Application;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +10,6 @@ import static io.cygert.transactions.Fixtures.newCalculatorApplication;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class TemplateInsertApplicationDaoTest {
 
     @Autowired
@@ -22,7 +18,6 @@ class TemplateInsertApplicationDaoTest {
     private TemplateFindApplicationByIdDao findApplicationByIdDaoById;
 
     @Test
-    @Order(0)
     @Transactional
     void save_shouldAddNewApplication() {
         // given

@@ -27,7 +27,7 @@ class JdbcInsertApplicationDaoTest {
         assertThat(findApplicationByIdDao.findById(appId)).hasValueSatisfying(savedApplication -> {
             assertThat(savedApplication.getId()).isEqualTo(appId);
             assertThat(savedApplication.getName()).isEqualTo(application.getName());
-            assertThat(savedApplication.getReviews()).usingElementComparatorIgnoringFields("id")
+            assertThat(savedApplication.getReviews()).usingRecursiveFieldByFieldElementComparatorIgnoringFields("id")
                                                      .containsAll(application.getReviews());
         });
     }

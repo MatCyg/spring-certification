@@ -12,8 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Statement;
 import java.util.List;
 
-import static java.util.stream.Collectors.toUnmodifiableList;
-
 @Slf4j
 @Repository
 @RequiredArgsConstructor
@@ -61,6 +59,6 @@ class TemplateInsertApplicationDao {
         return app.getReviews()
                   .stream()
                   .map(review -> new Object[]{appId, review.getRating(), review.getDescription()})
-                  .collect(toUnmodifiableList());
+                  .toList();
     }
 }

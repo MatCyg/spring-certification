@@ -1,7 +1,19 @@
+Beans:
+@Resource == @Autowired + @Qualifier
+@Named == @Component
+@Autowired == @Inject
+@Import vs @ContextConfiguration, @Import adds beans to current configuration, @ContextConfiguration overrides the whole context
+
 Context:
 - `AutowiredAnnotationBeanPostProcessor`
 - `DefaultSingletonBeanRegistry`
 - `InfrastructureAdvisorAutoProxyCreator`
+
+Mapping rows:
+- `RowCallbackHandler` - when no value should be returned.
+- `RowMapper` - when each row of the ResultSet maps to a domain object.
+- `RowSetExtractor` - when **multiple** rows of the ResultSet maps to a single object.
+- `ParameterizedRowMapper` complex object creation
 
 Data:
 - `TransactionInterceptor`
@@ -23,6 +35,7 @@ Data:
 - `@SqlGroup`
 
 
+
 Transaction Managers:
 - `DataSourceTransactionManager` - basic transaction management provider used with JDBC and MyBatis
 - `HibernateTransactionManager`
@@ -31,4 +44,7 @@ Transaction Managers:
 - `WebLogicJtaTransactionManager`
 
 ![Transaction Sequence Diagram](images/transaction_sequence_diagram.png)
+
+
+
 
