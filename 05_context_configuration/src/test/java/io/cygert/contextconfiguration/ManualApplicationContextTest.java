@@ -1,5 +1,6 @@
 package io.cygert.contextconfiguration;
 
+import io.cygert.outside.OutsideMainPackageBean;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
@@ -17,5 +18,7 @@ class ManualApplicationContextTest {
         assertThat(context.getBean(Foo.class)).isNotNull();
         assertThatThrownBy(() -> context.getBean(Bar.class))
                   .isInstanceOf(NoSuchBeanDefinitionException.class);
+        assertThatThrownBy(() -> context.getBean(OutsideMainPackageBean.class))
+                .isInstanceOf(NoSuchBeanDefinitionException.class);
     }
 }
