@@ -12,4 +12,6 @@
 9. @Required
 10. @DependsOn
 11. What is the difference between transaction managers?
+12. When to use which propagation type?
+13. What is aspect weaving?
 
