@@ -11,5 +11,7 @@
 8. Proxy target class meaning
 9. @Required
 10. @DependsOn
-11. @Resource
+11. @Resource == @Autowired + @Qualifier
+12. @Named == @Component
+13. @Autowired == @Inject
 

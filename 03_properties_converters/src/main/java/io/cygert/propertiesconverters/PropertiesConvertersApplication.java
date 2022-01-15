@@ -51,14 +51,11 @@ class FooService {
 
     @PostConstruct
     void init() {
-        log.info("Provided ip address = {} and port {}", ip.getIp(), ip.getPort());
+        log.info("Provided ip address = {} and port {}", ip.ip(), ip.port());
     }
 }
 
-@lombok.Value
-class TcpAddress {
-    private final String ip;
-    private final int port;
+record TcpAddress(String ip, int port) {
 }
 
 @Component
