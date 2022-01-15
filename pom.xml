@@ -23,6 +23,7 @@
         <module>04_circular_lazy_dependency</module>
         <module>05_context_configuration</module>
         <module>06_transactions</module>
+        <module>07_web_mvc</module>
     </modules>
 
     <properties>
