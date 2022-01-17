@@ -9,6 +9,9 @@ Context:
 - `DefaultSingletonBeanRegistry`
 - `InfrastructureAdvisorAutoProxyCreator`
 
+Configurationap:
+- `PropertySourcesPlaceholderConfigurer`
+
 Mapping rows:
 - `RowCallbackHandler` - when no value should be returned.
 - `RowMapper` - when each row of the ResultSet maps to a domain object.
@@ -46,5 +49,23 @@ Transaction Managers:
 ![Transaction Sequence Diagram](images/transaction_sequence_diagram.png)
 
 
-
-
+Web:
+- `MessageConverter`
+- ``
+- Handler method: can have parameters:
+  - Model, ModelMap, RedirectAttributes, @ModelAttribute, @SessionAttribute, @RequestAttribute
+  - @Validated, BindingResult - provides validation errors
+  - java.io.InputStream
+  - java.io.Reader
+  - PushBuilder - HTTP2 resource push
+  - java.security.Principal
+  - WebRequest, NativeWebRequest, javax.servlet.ServletRequest
+  - javax.servlet.ServletResponse
+  - HttpMethod
+  - Locale
+  - @RequestParam, @PathVariable, @RequestHeader, @MatrixVariable, @CookieValue
+  - String, CharSequence, Date, Temporal, URI, URL (treated as if they are annotated with @RequestParam)
+- Handler method: annotations:
+  - @RequestMapping, @GetMapping, etc.
+  - @ResponseStatus
+- Path variable can be defined in the class level @RequestMapping
