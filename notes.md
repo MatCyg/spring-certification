@@ -68,4 +68,35 @@ Web:
 - Handler method: annotations:
   - @RequestMapping, @GetMapping, etc.
   - @ResponseStatus
-- Path variable can be defined in the class level @RequestMapping
+- Handler method: return type:
+  - void (no response or when the response is written directly to ServletResponse)
+  - ModelAndView
+
+View technologies that Spring supports by default: JSP, Velocity templates, XSLT views. View is resolved automatically 
+when the return type is one of: `String`, `View` or `ModelAndView`. The default resolver is `InternalResourceViewResolver`. See
+`DispatcherServlet.properties` for more default configurations.
+
+`ViewResolver` - resolves string to a view:
+  - `ContentNegotiatingViewResolver` - can be used when 2 views has the same name. The returned view might depend on 
+    distinct url, `Accept` header, Request params
+  - `ContentNegotiationManagerFactoryBean` 
+  - `ContentNegotiationManager`
+  - url can start with `redirect:` or `forward:`
+
+`WebInitializer`, `WebAppInitializer`
+`AbstractAnnotationConfigDispatcherServletInitializer`, `HandlerExceptionResolver`, `@ExceptionHandler`, `@ControllerAdvice`
+`WebMvcConfigurer`
+
+`@WebMvcTest` - bootstraps beans only relevant to MVC under test
+`@AutoConfigureMockMvc` - can be used with @SpringBootTest to boostrap full application context.
+
+- Path variable (i.e. {id}) can be defined in the class level @RequestMapping
+
+
+- `RestTemplate::setErrorHandler`
+- Request details can be accessed by `@Value`, i.e. `@Value("#{request.requestURL}) StringBuffer originalUrl`
+- `UriTemplate`
+- `AuthenticationEntryPoint`
+
+
+Actuator
