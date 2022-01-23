@@ -99,4 +99,9 @@ when the return type is one of: `String`, `View` or `ModelAndView`. The default 
 - `AuthenticationEntryPoint`
 
 
-Actuator
+Actuator:
+  - /actuator
+  - `HealthIndicator`, `HealthStatusHttpMapper`
+  - `@Endpoint`, `@ReadOperation`, `@WriteOperation`, `@DeleteOperation`, `@JmxEndpoint`, `@WebEndpoint`, `@Selector`
+  
+
