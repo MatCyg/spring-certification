@@ -111,7 +111,12 @@ Security:
 - `SecurityContextPersistenceFilter` - filter which sets/clears `SecurityContextHolder`
 - `WebSecurityConfigurerAdapter`, `WebSecurityConfigurer` - means to customize default security configuration, replaces xml configuration  
 - `AuthenticatedVoter`
-- `@EnableWebSecurity`
+- `@EnableWebSecurity`, `@EnableGlobalMethodSecurity`, `@Secured("ROLE_ADMIN")`, jsr250 `@RolesAllowed("ROLE_ADMIN")`
+- `@EnableGlobalMethodSecurity(prePostEnabled = true)`:
+  - `@PreAuthorize`, `@PreFilter`, `@PostAuthorize`, `@PostFilter`, these supports SpEL expressions:
+    - `@PreAuthorize("hasRole('ROLE_ADMIN'))`
+    - `@PreAuthorize("hasPermission(#user, 'admin'))`
+    - `@PreAuthorize("#user.username == authentication.name")`
 
 
 
