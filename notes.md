@@ -105,3 +105,17 @@ Actuator:
   - `@Endpoint`, `@ReadOperation`, `@WriteOperation`, `@DeleteOperation`, `@JmxEndpoint`, `@WebEndpoint`, `@Selector`
   
 
+Security:
+- `Principal` - signifies the user, device or system that could perform an action within an application
+- `Credetials` - identification keys used by a principal to confirm its identity
+- `SecurityContextPersistenceFilter` - filter which sets/clears `SecurityContextHolder`
+- `WebSecurityConfigurerAdapter`, `WebSecurityConfigurer` - means to customize default security configuration, replaces xml configuration  
+- `AuthenticatedVoter`
+
+
+
+
+
+
+
+
