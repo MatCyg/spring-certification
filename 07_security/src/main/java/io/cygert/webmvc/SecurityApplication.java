@@ -30,7 +30,7 @@ class SecurityApplication {
 
     @RestController
     @RequestMapping("/test")
-    static class HomeController {
+    static class TestController {
 
         @GetMapping
         String test() {
