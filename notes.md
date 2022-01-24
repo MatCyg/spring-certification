@@ -71,6 +71,7 @@ Web:
 - Handler method: return type:
   - void (no response or when the response is written directly to ServletResponse)
   - ModelAndView
+  - @AuthenticationPrincipal
 
 View technologies that Spring supports by default: JSP, Velocity templates, XSLT views. View is resolved automatically 
 when the return type is one of: `String`, `View` or `ModelAndView`. The default resolver is `InternalResourceViewResolver`. See
