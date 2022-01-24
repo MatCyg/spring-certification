@@ -111,6 +111,7 @@ Security:
 - `SecurityContextPersistenceFilter` - filter which sets/clears `SecurityContextHolder`
 - `WebSecurityConfigurerAdapter`, `WebSecurityConfigurer` - means to customize default security configuration, replaces xml configuration  
 - `AuthenticatedVoter`
+- `@EnableWebSecurity`
 
 
 
