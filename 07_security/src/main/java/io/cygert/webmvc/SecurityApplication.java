@@ -9,10 +9,10 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,14 +27,19 @@ class SecurityApplication {
     @RequestMapping("/test")
     static class HomeController {
 
-        @GetMapping("/{id}")
-        String test(@PathVariable String id) {
-            return id;
+        @GetMapping
+        String test() {
+            return "called /test";
         }
 
-        @GetMapping("/name/{id}")
-        String name(@PathVariable String id) {
-            return "the name " + id;
+        @GetMapping("/name")
+        String name() {
+            return "called /test/name";
+        }
+
+        @GetMapping("/names")
+        String names() {
+            return "called /test/names";
         }
     }
 
@@ -53,8 +58,11 @@ class SecurityApplication {
         protected void configure(HttpSecurity http) throws Exception {
             // The most detailed ant matcher must be defined first. Reversing the order of this configuration will make
             // both endpoints insecure.
-            http.authorizeRequests()
-                .mvcMatchers("/test/name/**").hasRole("ADMIN")
+            http.sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests()
+                .mvcMatchers("/test/name**").hasRole("ADMIN")
                 .mvcMatchers("/test/**").permitAll()
                 .and()
                 .httpBasic();

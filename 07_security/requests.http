@@ -1,0 +1,12 @@
+GET http://localhost:8080/test
+
+###
+
+GET http://localhost:8080/test/name
+Authorization: Basic admin admin
+
+###
+
+GET http://localhost:8080/test/names
+Authorization: Basic admin admin
+
