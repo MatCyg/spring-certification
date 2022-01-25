@@ -1,8 +1,8 @@
 Beans:
-@Resource == @Autowired + @Qualifier
-@Named == @Component
-@Autowired == @Inject
-@Import vs @ContextConfiguration, @Import adds beans to current configuration, @ContextConfiguration overrides the whole context
+- `@Resource` == `@Autowired` + `@Qualifier`
+- `@Named` == `@Component`
+- `@Autowired` == `@Inject`
+- `@Import` vs `@ContextConfiguration`, `@Import` adds beans to current configuration, `@ContextConfiguration` overrides the whole context
 
 Context:
 - `AutowiredAnnotationBeanPostProcessor`
@@ -12,13 +12,17 @@ Context:
 Configuration:
 - `PropertySourcesPlaceholderConfigurer`
 
+
+
+Data:
+
 Mapping rows:
 - `RowCallbackHandler` - when no value should be returned.
 - `RowMapper` - when each row of the ResultSet maps to a domain object.
 - `RowSetExtractor` - when **multiple** rows of the ResultSet maps to a single object.
 - `ParameterizedRowMapper` complex object creation
 
-Data:
+Others:
 - `TransactionInterceptor`
 - `EnableTransactionManagement`
 - `TransactionManagementConfigurer` - allows setting default transaction manager when more than one is available (`@Primary` can also be used)
@@ -38,18 +42,19 @@ Data:
 - `@SqlGroup`
 
 
-
 Transaction Managers:
 - `DataSourceTransactionManager` - basic transaction management provider used with JDBC and MyBatis
 - `HibernateTransactionManager`
 - `JpaTransactionManager`
 - `JtaTransactionManager` - used to delegate transaction management to a Java EE server. Can be also used with Atomikos
 - `WebLogicJtaTransactionManager`
+- `JdoTransactionManager`
 
 ![Transaction Sequence Diagram](images/transaction_sequence_diagram.png)
 
 
 Web:
+- `@JsonComponent` - stereotype that registers in with Jackson JsonComponentModule. Provides a way to override Json serialization/deserialization for given object. 
 - `MessageConverter`
 - ``
 - Handler method: can have parameters:
