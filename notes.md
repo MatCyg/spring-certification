@@ -55,8 +55,7 @@ Transaction Managers:
 
 Web:
 - `@JsonComponent` - stereotype that registers in with Jackson JsonComponentModule. Provides a way to override Json serialization/deserialization for given object. 
-- `MessageConverter`
-- ``
+- `HttpMessageConverter` - used to convert incoming/outgoing http body
 - Handler method: can have parameters:
   - Model, ModelMap, RedirectAttributes, @ModelAttribute, @SessionAttribute, @RequestAttribute
   - @Validated, BindingResult - provides validation errors
@@ -70,13 +69,15 @@ Web:
   - Locale
   - @RequestParam, @PathVariable, @RequestHeader, @MatrixVariable, @CookieValue
   - String, CharSequence, Date, Temporal, URI, URL (treated as if they are annotated with @RequestParam)
+  - @AuthenticationPrincipal
 - Handler method: annotations:
   - @RequestMapping, @GetMapping, etc.
   - @ResponseStatus
 - Handler method: return type:
   - void (no response or when the response is written directly to ServletResponse)
+  - String
+  - View
   - ModelAndView
-  - @AuthenticationPrincipal
 
 View technologies that Spring supports by default: JSP, Velocity templates, XSLT views. View is resolved automatically 
 when the return type is one of: `String`, `View` or `ModelAndView`. The default resolver is `InternalResourceViewResolver`. See
@@ -94,7 +95,7 @@ when the return type is one of: `String`, `View` or `ModelAndView`. The default 
 `WebMvcConfigurer`
 
 `@WebMvcTest` - bootstraps beans only relevant to MVC under test
-`@AutoConfigureMockMvc` - can be used with @SpringBootTest to boostrap full application context.
+`@AutoConfigureMockMvc` - can be used with @SpringBootTest to boostrap full application context and configure mock mvc.
 
 - Path variable (i.e. {id}) can be defined in the class level @RequestMapping
 
@@ -113,7 +114,7 @@ Actuator:
 
 Security:
 - `Principal` - signifies the user, device or system that could perform an action within an application
-- `Credetials` - identification keys used by a principal to confirm its identity
+- `Credentials` - identification keys used by a principal to confirm its identity
 - `SecurityContextPersistenceFilter` - filter which sets/clears `SecurityContextHolder`
 - `AbstractSecurityWebApplicationInitializer`
 - `WebSecurityConfigurerAdapter`, `WebSecurityConfigurer` - means to customize default security configuration, replaces xml configuration  
