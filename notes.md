@@ -40,6 +40,7 @@ Others:
 - `@Sql`
 - `@SqlConfig`
 - `@SqlGroup`
+- `@RepositoryDefinition`
 
 
 Transaction Managers:
@@ -70,6 +71,7 @@ Web:
   - @RequestParam, @PathVariable, @RequestHeader, @MatrixVariable, @CookieValue
   - String, CharSequence, Date, Temporal, URI, URL (treated as if they are annotated with @RequestParam)
   - @AuthenticationPrincipal
+  - MultipartFile
 - Handler method: annotations:
   - @RequestMapping, @GetMapping, etc.
   - @ResponseStatus
@@ -77,7 +79,13 @@ Web:
   - void (no response or when the response is written directly to ServletResponse)
   - String
   - View
+  - Model
   - ModelAndView
+  - Map
+  - DeferredResult
+  - Callable
+  - CompletableFuture
+  - [see more](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-ann-return-types)
 
 View technologies that Spring supports by default: JSP, Velocity templates, XSLT views. View is resolved automatically 
 when the return type is one of: `String`, `View` or `ModelAndView`. The default resolver is `InternalResourceViewResolver`. See
