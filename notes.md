@@ -70,7 +70,7 @@ Web:
   - Locale
   - @RequestParam, @PathVariable, @RequestHeader, @MatrixVariable, @CookieValue
   - String, CharSequence, Date, Temporal, URI, URL (treated as if they are annotated with @RequestParam)
-  - java.security.Principal, @AuthenticationPrincipal
+  - java.security.Principal, Authentication, @AuthenticationPrincipal
   - MultipartFile
 - Handler method: annotations:
   - @RequestMapping, @GetMapping, etc.
