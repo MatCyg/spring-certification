@@ -23,6 +23,7 @@ Mapping rows:
 - `ParameterizedRowMapper` complex object creation
 
 Others:
+- `DriverManagerDataSource`, `SingleConnectionDataSource`
 - `TransactionInterceptor`
 - `EnableTransactionManagement`
 - `TransactionManagementConfigurer` - allows setting default transaction manager when more than one is available (`@Primary` can also be used)
@@ -63,14 +64,13 @@ Web:
   - java.io.InputStream
   - java.io.Reader
   - PushBuilder - HTTP2 resource push
-  - java.security.Principal
   - WebRequest, NativeWebRequest, javax.servlet.ServletRequest
   - javax.servlet.ServletResponse
   - HttpMethod
   - Locale
   - @RequestParam, @PathVariable, @RequestHeader, @MatrixVariable, @CookieValue
   - String, CharSequence, Date, Temporal, URI, URL (treated as if they are annotated with @RequestParam)
-  - @AuthenticationPrincipal
+  - java.security.Principal, @AuthenticationPrincipal
   - MultipartFile
 - Handler method: annotations:
   - @RequestMapping, @GetMapping, etc.
