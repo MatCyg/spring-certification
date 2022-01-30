@@ -32,7 +32,7 @@ Others:
   - data.sql
   - schema-${platform}.sql
   - data-${platform}.sql \
-    where platform: `all`, `h2` `postgres`, etc
+    where platform: `all`, `h2`, `postgres`, etc
 - `@Transactional`
 - `@Commit`
 - `@Rollback`
@@ -136,7 +136,8 @@ Security:
 
 
 
-
+Random:
+ApplicationContext.getEnvironment().getProperty("propName")
 
 
 
